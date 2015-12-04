@@ -1,0 +1,37 @@
+﻿using TicTacToeMBT.Sample;
+
+config Main 
+{
+    action abstract static void Accumulator.Start();
+    action abstract static void Accumulator.Stop();
+    action abstract static void Accumulator.PlayerXClick(int x, int y);
+    action abstract static void Accumulator.PlayerOClick(int x, int y);
+
+    switch StepBound = 128;
+    switch PathDepthBound = 128;
+    switch TestClassBase = "vs";
+    switch GeneratedTestPath = "..\\TicTacToeMBT.TestSuite";
+    switch GeneratedTestNamespace = "TicTacToeMBT.TestSuite";
+    switch TestEnabled = false;
+    switch ForExploration = false;
+}
+
+config ParameterCombination: Main 
+{
+    action abstract static void Accumulator.PlayerXClick(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.PlayerOClick(int x, int y)
+        where x in {0..2}, y in {0..2};
+}
+
+machine AccumulatorModelProgram() : Main where ForExploration = true
+{
+    construct model program from ParameterCombination 
+    where scope = "TicTacToeMBT.AccumulatorModelProgram" //The value of the namespace switch can be a .Net namespace or a fully-qualified class name.
+}
+
+machine AccumulatorTestSuite() : Main where ForExploration = true, TestEnabled = true
+{
+    construct test cases where strategy = "ShortTests" for AccumulatorModelProgram()
+}
