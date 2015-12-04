@@ -1,0 +1,44 @@
+﻿// This is a Spec Explorer coordination script (Cord version 1.0).
+// Here is where you define configurations and machines describing the
+// exploration to be performed.
+
+using SpecExplorerSayHello.Sample;
+
+/// Contains actions of the model, bounds, and switches.
+config Main 
+{
+    /// The two implementation actions that will be modeled and tested
+    action abstract static void Accumulator.SayHello(string message);
+    action abstract static void Accumulator.Start();
+    action abstract static void Accumulator.Stop();
+    action abstract static void Accumulator.Clear();
+
+    switch StepBound = 128;
+    switch PathDepthBound = 128;
+    switch TestClassBase = "vs";
+    switch GeneratedTestPath = "..\\SpecExplorerSayHello.TestSuite";
+    switch GeneratedTestNamespace = "SpecExplorerSayHello.TestSuite";
+    switch TestEnabled = false;
+    switch ForExploration = false;
+}
+
+/// This configuration provides a domain for 
+/// parameter in the previous one. 
+config ParameterCombination: Main 
+{
+    action abstract static void Accumulator.SayHello(string message)
+        where message in {"Piet","Tester"};    
+}
+
+/// Test a whole model
+machine AccumulatorModelProgram() : Main where ForExploration = true
+{
+    construct model program from ParameterCombination 
+    where scope = "SpecExplorerSayHello.AccumulatorModelProgram" //The value of the namespace switch can be a .Net namespace or a fully-qualified class name.
+}
+
+/// Test the test suite
+machine AccumulatorTestSuite() : Main where ForExploration = true, TestEnabled = true
+{
+    construct test cases where strategy = "ShortTests" for AccumulatorModelProgram()
+}
