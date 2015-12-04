@@ -1,2 +1,2 @@
 # mbt
-a model based testing introduction using Spec Explorer
+a model based testing projects using Spec Explorer
