@@ -21,5 +21,20 @@ namespace TicTacToeMBT.Sample
         public static void Stop()
         {
         }
+        public static void SelectXasFirstPlayer()
+        {
+        }
+        public static void SelectOasFirstPlayer()
+        {
+        }
+        public static void UpdateScorePlayerXwin()
+        {
+        }
+        public static void UpdateScorePlayerOwin()
+        {
+        }
+        public static void UpdateScorePlayerDraw()
+        {
+        }
     }
 }

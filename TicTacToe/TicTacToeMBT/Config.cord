@@ -6,6 +6,11 @@ config Main
     action abstract static void Accumulator.Stop();
     action abstract static void Accumulator.PlayerXClick(int x, int y);
     action abstract static void Accumulator.PlayerOClick(int x, int y);
+    action abstract static void Accumulator.SelectXasFirstPlayer();
+    action abstract static void Accumulator.SelectOasFirstPlayer();
+    action abstract static void Accumulator.UpdateScorePlayerXwin();
+    action abstract static void Accumulator.UpdateScorePlayerOwin();
+    action abstract static void Accumulator.UpdateScorePlayerDraw();
 
     switch StepBound = 128;
     switch PathDepthBound = 128;
