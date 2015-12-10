@@ -9,13 +9,9 @@ config Main
     action abstract static void Accumulator.SelectXasFirstPlayer();
     action abstract static void Accumulator.SelectOasFirstPlayer();
     action abstract static void Accumulator.PlayerXWin();
-    action abstract static void Accumulator.PlayerXWinHorizontal();
-    action abstract static void Accumulator.PlayerXWinVertical();
-    action abstract static void Accumulator.PlayerXWinDiagonal();
+    action abstract static void Accumulator.CheckPlayerXWin();
     action abstract static void Accumulator.PlayerOWin();
-    action abstract static void Accumulator.PlayerOWinHorizontal();
-    action abstract static void Accumulator.PlayerOWinVertical();
-    action abstract static void Accumulator.PlayerOWinDiagonal();
+    action abstract static void Accumulator.CheckPlayerOWin();
     action abstract static void Accumulator.PlayerDraw();
     action abstract static void Accumulator.Draw();
     action abstract static void Accumolator.ClearStatsClick();

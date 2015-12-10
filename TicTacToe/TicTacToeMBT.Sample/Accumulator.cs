@@ -35,25 +35,13 @@ namespace TicTacToeMBT.Sample
         public static void SelectOasFirstPlayer()
         {
         }
-        public static void PlayerXWinHorizontal()
-        {
-        }
-        public static void PlayerXWinVertical()
-        {
-        }
-        public static void PlayerXWinDiagonal()
+        public static void CheckPlayerXWin()
         {
         }
         public static void PlayerXWin()
         {
         }
-        public static void PlayerOWinHorizontal()
-        {
-        }
-        public static void PlayerOWinVertical()
-        {
-        }
-        public static void PlayerOWinDiagonal()
+        public static void CheckPlayerOWin()
         {
         }
         public static void PlayerOWin()

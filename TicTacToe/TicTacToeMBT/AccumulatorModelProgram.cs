@@ -44,30 +44,15 @@ namespace TicTacToeMBT
             gameBoard[x][y] = (int)BoxValue.X;
         }
 
-        [Rule(Action = "PlayerXWinHorizontal")]
-        static void PlayerXWinHorizontal()
+        [Rule(Action = "CheckPlayerXWin")]
+        static void CheckPlayerXWin()
         {
             Condition.IsTrue(gameState == GameState.Running);
 
-            Condition.IsTrue(CheckWinHorizontal(BoxValue.X));
-            gameState = GameState.XWin;
-        }
+            Condition.IsTrue(CheckWinHorizontal(BoxValue.X)
+                           | CheckWinVertical(BoxValue.X)
+                           | CheckWinDiagonal(BoxValue.X));
 
-        [Rule(Action = "PlayerXWinVertical")]
-        static void PlayerXWinVertical()
-        {
-            Condition.IsTrue(gameState == GameState.Running);
-
-            Condition.IsTrue(CheckWinVertical(BoxValue.X));
-            gameState = GameState.XWin;
-        }
-
-        [Rule(Action = "PlayerXWinDiagonal")]
-        static void PlayerXWinDiagonal()
-        {
-            Condition.IsTrue(gameState == GameState.Running);
-
-            Condition.IsTrue(CheckWinDiagonal(BoxValue.X));
             gameState = GameState.XWin;
         }
 
@@ -93,30 +78,15 @@ namespace TicTacToeMBT
             gameBoard[x][y] = (int)BoxValue.O;
         }
 
-        [Rule(Action = "PlayerOWinHorizontal")]
-        static void PlayerOWinHorizontal()
+        [Rule(Action = "CheckPlayerOWin")]
+        static void CheckPlayerOWin()
         {
             Condition.IsTrue(gameState == GameState.Running);
 
-            Condition.IsTrue(CheckWinHorizontal(BoxValue.O));
-            gameState = GameState.OWin;
-        }
+            Condition.IsTrue(CheckWinHorizontal(BoxValue.O)
+                           | CheckWinVertical(BoxValue.O)
+                           | CheckWinDiagonal(BoxValue.O));
 
-        [Rule(Action = "PlayerOWinVertical")]
-        static void PlayerOWinVertical()
-        {
-            Condition.IsTrue(gameState == GameState.Running);
-
-            Condition.IsTrue(CheckWinVertical(BoxValue.O));
-            gameState = GameState.OWin;
-        }
-
-        [Rule(Action = "PlayerOWinDiagonal")]
-        static void PlayerOWinDiagonal()
-        {
-            Condition.IsTrue(gameState == GameState.Running);
-
-            Condition.IsTrue(CheckWinDiagonal(BoxValue.O));
             gameState = GameState.OWin;
         }
 
@@ -175,7 +145,7 @@ namespace TicTacToeMBT
 
             // Enable to change if only current first player is O
             Condition.IsTrue(firstPlayer == TurnState.PlayerO);
-            
+
             firstPlayer = TurnState.PlayerX;
             turnState = TurnState.PlayerX;
 
@@ -193,7 +163,7 @@ namespace TicTacToeMBT
 
             // Enable to change if only current first player is X
             Condition.IsTrue(firstPlayer == TurnState.PlayerX);
-            
+
             firstPlayer = TurnState.PlayerO;
             turnState = TurnState.PlayerO;
 
