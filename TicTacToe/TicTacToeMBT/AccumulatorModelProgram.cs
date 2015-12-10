@@ -15,6 +15,7 @@ namespace TicTacToeMBT
     {
         static GameState gameState = GameState.NotRunning;
         static TurnState turnState = TurnState.PlayerX;
+        static TurnState firstPlayer = TurnState.PlayerX;
         static int[][] gameBoard = new int[3][];
         static int xWins = 0;
         static decimal xRecord = 0;
@@ -22,6 +23,12 @@ namespace TicTacToeMBT
         static decimal oRecord = 0;
         static int catWins = 0;
         static decimal catRecord = 0;
+
+        [Probe]
+        public static string status()
+        {
+            return "gameState:" + gameState.ToString();
+        }
 
         [Rule(Action = "PlayerXClick(x,y)")]
         static void PlayerXClick(int x, int y)
@@ -35,34 +42,41 @@ namespace TicTacToeMBT
 
             // Mark box as X
             gameBoard[x][y] = (int)BoxValue.X;
+        }
 
-            // Check X win horizontal
-            if (CheckWinHorizontal(BoxValue.X))
-            {
-                gameState = GameState.XWin;
-                return;
-            }
+        [Rule(Action = "PlayerXWinHorizontal")]
+        static void PlayerXWinHorizontal()
+        {
+            Condition.IsTrue(gameState == GameState.Running);
 
-            // Check X win vertical
-            if (CheckWinVertical(BoxValue.X))
-            {
-                gameState = GameState.XWin;
-                return;
-            }
+            Condition.IsTrue(CheckWinHorizontal(BoxValue.X));
+            gameState = GameState.XWin;
+        }
 
-            // Check X win diagonal
-            if (CheckWinDiagonal(BoxValue.X))
-            {
-                gameState = GameState.XWin;
-                return;
-            }
+        [Rule(Action = "PlayerXWinVertical")]
+        static void PlayerXWinVertical()
+        {
+            Condition.IsTrue(gameState == GameState.Running);
 
-            // Check Draw
-            if (CheckDraw())
-            {
-                gameState = GameState.Draw;
-                return;
-            }
+            Condition.IsTrue(CheckWinVertical(BoxValue.X));
+            gameState = GameState.XWin;
+        }
+
+        [Rule(Action = "PlayerXWinDiagonal")]
+        static void PlayerXWinDiagonal()
+        {
+            Condition.IsTrue(gameState == GameState.Running);
+
+            Condition.IsTrue(CheckWinDiagonal(BoxValue.X));
+            gameState = GameState.XWin;
+        }
+
+        [Rule(Action = "PlayerXWin()")]
+        static void PlayerXWin()
+        {
+            Condition.IsTrue(gameState == GameState.XWin);
+            xWins++;
+            UpdateScoreRecords();
         }
 
         [Rule(Action = "PlayerOClick(x,y)")]
@@ -77,34 +91,57 @@ namespace TicTacToeMBT
 
             // Mark box as O
             gameBoard[x][y] = (int)BoxValue.O;
+        }
 
-            // Check O win horizontal
-            if (CheckWinHorizontal(BoxValue.O))
-            {
-                gameState = GameState.OWin;
-                return;
-            }
+        [Rule(Action = "PlayerOWinHorizontal")]
+        static void PlayerOWinHorizontal()
+        {
+            Condition.IsTrue(gameState == GameState.Running);
 
-            // Check O win vertical
-            if (CheckWinVertical(BoxValue.O))
-            {
-                gameState = GameState.OWin;
-                return;
-            }
+            Condition.IsTrue(CheckWinHorizontal(BoxValue.O));
+            gameState = GameState.OWin;
+        }
 
-            // Check O win diagonal
-            if (CheckWinDiagonal(BoxValue.O))
-            {
-                gameState = GameState.OWin;
-                return;
-            }
+        [Rule(Action = "PlayerOWinVertical")]
+        static void PlayerOWinVertical()
+        {
+            Condition.IsTrue(gameState == GameState.Running);
 
-            // Check Draw
-            if (CheckDraw())
-            {
-                gameState = GameState.Draw;
-                return;
-            }
+            Condition.IsTrue(CheckWinVertical(BoxValue.O));
+            gameState = GameState.OWin;
+        }
+
+        [Rule(Action = "PlayerOWinDiagonal")]
+        static void PlayerOWinDiagonal()
+        {
+            Condition.IsTrue(gameState == GameState.Running);
+
+            Condition.IsTrue(CheckWinDiagonal(BoxValue.O));
+            gameState = GameState.OWin;
+        }
+
+        [Rule(Action = "PlayerOWin()")]
+        static void PlayerOWin()
+        {
+            Condition.IsTrue(gameState == GameState.OWin);
+            oWins++;
+            UpdateScoreRecords();
+        }
+
+        [Rule(Action = "PlayerDraw()")]
+        static void PlayerDraw()
+        {
+            Condition.IsTrue(gameState == GameState.Running);
+            Condition.IsTrue(CheckDraw());
+            gameState = GameState.Draw;
+        }
+
+        [Rule(Action = "Draw()")]
+        static void Draw()
+        {
+            Condition.IsTrue(gameState == GameState.Draw);
+            catWins++;
+            UpdateScoreRecords();
         }
 
         [Rule(Action = "Start()")]
@@ -120,14 +157,26 @@ namespace TicTacToeMBT
         [Rule(Action = "Stop()")]
         static void Stop()
         {
-            Condition.IsTrue(gameState == GameState.Running);
+            Condition.IsTrue(gameState == GameState.Running
+                           | gameState == GameState.Draw
+                           | gameState == GameState.XWin
+                           | gameState == GameState.OWin);
+
             gameState = GameState.NotRunning;
         }
 
         [Rule(Action = "SelectXasFirstPlayer()")]
         static void SelectXasFirstPlayer()
         {
-            Condition.IsTrue(gameState == GameState.Running);
+            Condition.IsTrue(gameState == GameState.Running
+                           | gameState == GameState.Draw
+                           | gameState == GameState.XWin
+                           | gameState == GameState.OWin);
+
+            // Enable to change if only current first player is O
+            Condition.IsTrue(firstPlayer == TurnState.PlayerO);
+            
+            firstPlayer = TurnState.PlayerX;
             turnState = TurnState.PlayerX;
 
             // Reset game
@@ -137,35 +186,47 @@ namespace TicTacToeMBT
         [Rule(Action = "SelectOasFirstPlayer()")]
         static void SelectOasFirstPlayer()
         {
-            Condition.IsTrue(gameState == GameState.Running);
+            Condition.IsTrue(gameState == GameState.Running
+                           | gameState == GameState.Draw
+                           | gameState == GameState.XWin
+                           | gameState == GameState.OWin);
+
+            // Enable to change if only current first player is X
+            Condition.IsTrue(firstPlayer == TurnState.PlayerX);
+            
+            firstPlayer = TurnState.PlayerO;
             turnState = TurnState.PlayerO;
 
             // Reset game
             InitializeGameBoard();
         }
 
-        [Rule(Action = "UpdateScorePlayerXwin()")]
-        static void UpdateScorePlayerXwin()
+        [Rule(Action = "ClearStatsClick()")]
+        static void ClearStatsClick()
         {
-            Condition.IsTrue(gameState == GameState.XWin);
-            xWins++;
-            UpdateScoreRecords();
+            Condition.IsTrue(gameState == GameState.Running
+                           | gameState == GameState.Draw
+                           | gameState == GameState.XWin
+                           | gameState == GameState.OWin);
+
+            xWins = 0;
+            xRecord = 0;
+            oWins = 0;
+            oRecord = 0;
+            catWins = 0;
+            catRecord = 0;
         }
 
-        [Rule(Action = "UpdateScorePlayerOwin()")]
-        static void UpdateScorePlayerOwin()
+        [Rule(Action = "NewGameClick()")]
+        static void NewGameClick()
         {
-            Condition.IsTrue(gameState == GameState.OWin);
-            oWins++;
-            UpdateScoreRecords();
-        }
+            Condition.IsTrue(gameState == GameState.Running
+                           | gameState == GameState.Draw
+                           | gameState == GameState.XWin
+                           | gameState == GameState.OWin);
 
-        [Rule(Action = "UpdateScorePlayerDraw()")]
-        static void UpdateScorePlayerDraw()
-        {
-            Condition.IsTrue(gameState == GameState.Draw);
-            catWins++;
-            UpdateScoreRecords();
+            // Reset game
+            InitializeGameBoard();
         }
 
         static void UpdateScoreRecords()

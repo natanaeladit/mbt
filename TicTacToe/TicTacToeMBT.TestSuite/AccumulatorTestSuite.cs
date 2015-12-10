@@ -15,8 +15,6 @@ namespace TicTacToeMBT.TestSuite {
     using System.Reflection;
     using Microsoft.SpecExplorer.Runtime.Testing;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using OpenQA.Selenium.Firefox;
-    using OpenQA.Selenium;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Spec Explorer", "3.5.3146.0")]
