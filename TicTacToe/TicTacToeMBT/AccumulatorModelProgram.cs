@@ -57,8 +57,11 @@ namespace TicTacToeMBT
             // Mark box as X
             gameBoard[XSelected.x][XSelected.y] = (int)BoxValue.X;
 
-            // Check X win
+            // Check Draw
+            if (CheckDraw())
+                gameState = GameState.Draw;
 
+            // Check X win
             Condition.IsTrue(CheckWinHorizontal(BoxValue.X)
                            | CheckWinVertical(BoxValue.X)
                            | CheckWinDiagonal(BoxValue.X));
