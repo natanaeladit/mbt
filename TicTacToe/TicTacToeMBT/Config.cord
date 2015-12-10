@@ -4,16 +4,13 @@ config Main
 {
     action abstract static void Accumulator.Start();
     action abstract static void Accumulator.Stop();
-    action abstract static void Accumulator.PlayerXClick(int x, int y);
-    action abstract static void Accumulator.PlayerOClick(int x, int y);
+    action abstract static void Accumulator.PlayerXClick();
+    action abstract static void Accumulator.PlayerOClick();
     action abstract static void Accumulator.SelectXasFirstPlayer();
     action abstract static void Accumulator.SelectOasFirstPlayer();
     action abstract static void Accumulator.PlayerXWin();
-    action abstract static void Accumulator.CheckPlayerXWin();
     action abstract static void Accumulator.PlayerOWin();
-    action abstract static void Accumulator.CheckPlayerOWin();
     action abstract static void Accumulator.PlayerDraw();
-    action abstract static void Accumulator.Draw();
     action abstract static void Accumolator.ClearStatsClick();
     action abstract static void Accumolator.NewGameClick();
 
@@ -28,11 +25,11 @@ config Main
 
 config ParameterCombination: Main 
 {
-    action abstract static void Accumulator.PlayerXClick(int x, int y)
+    /*action abstract static void Accumulator.PlayerXClick(int x, int y)
         where x in {0..2}, y in {0..2};
 
     action abstract static void Accumulator.PlayerOClick(int x, int y)
-        where x in {0..2}, y in {0..2};
+        where x in {0..2}, y in {0..2};*/
 }
 
 machine AccumulatorModelProgram() : Main where ForExploration = true
@@ -43,5 +40,5 @@ machine AccumulatorModelProgram() : Main where ForExploration = true
 
 machine AccumulatorTestSuite() : Main where ForExploration = true, TestEnabled = true
 {
-    construct test cases where strategy = "ShortTests" for AccumulatorModelProgram()
+    construct test cases where strategy = "ShortTests", AllowUndeterminedCoverage = true for AccumulatorModelProgram()
 }

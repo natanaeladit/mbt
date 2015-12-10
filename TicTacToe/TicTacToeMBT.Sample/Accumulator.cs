@@ -15,10 +15,10 @@ namespace TicTacToeMBT.Sample
         static IWebDriver driver;
         static string url = "http://ostermiller.org/calc/tictactoe.html";
 
-        public static void PlayerXClick(int x, int y)
+        public static void PlayerXClick()
         {
         }
-        public static void PlayerOClick(int x, int y)
+        public static void PlayerOClick()
         {
         }
         public static void Start()
@@ -35,22 +35,13 @@ namespace TicTacToeMBT.Sample
         public static void SelectOasFirstPlayer()
         {
         }
-        public static void CheckPlayerXWin()
-        {
-        }
         public static void PlayerXWin()
-        {
-        }
-        public static void CheckPlayerOWin()
         {
         }
         public static void PlayerOWin()
         {
         }
         public static void PlayerDraw()
-        {
-        }
-        public static void Draw()
         {
         }
         public static void ClearStatsClick()

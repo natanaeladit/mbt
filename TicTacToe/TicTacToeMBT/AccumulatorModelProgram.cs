@@ -11,6 +11,12 @@ namespace TicTacToeMBT
     public enum TurnState { PlayerX, PlayerO }
     public enum BoxValue { Empty, X, O }
 
+    public class BoxCoordinate
+    {
+        public int x { get; set; }
+        public int y { get; set; }
+    }
+
     static class AccumulatorModelProgram
     {
         static GameState gameState = GameState.NotRunning;
@@ -24,30 +30,34 @@ namespace TicTacToeMBT
         static int catWins = 0;
         static decimal catRecord = 0;
 
+        static BoxCoordinate XSelected = new BoxCoordinate();
+        static BoxCoordinate OSelected = new BoxCoordinate();
+
         [Probe]
         public static string status()
         {
             return "gameState:" + gameState.ToString();
         }
 
-        [Rule(Action = "PlayerXClick(x,y)")]
-        static void PlayerXClick(int x, int y)
+        [Rule(Action = "PlayerXClick()")]
+        static void PlayerXClick()
         {
             Condition.IsTrue(gameState == GameState.Running);
             Condition.IsTrue(turnState == TurnState.PlayerX);
-            Condition.IsTrue(gameBoard[x][y] == (int)BoxValue.Empty);
+
+            // Non deterministic
+            XSelected.x = Choice.Some<int>(0, 1, 2);
+            XSelected.y = Choice.Some<int>(0, 1, 2);
+
+            Condition.IsTrue(gameBoard[XSelected.x][XSelected.y] == (int)BoxValue.Empty);
 
             // Update turn state
             turnState = TurnState.PlayerO;
 
             // Mark box as X
-            gameBoard[x][y] = (int)BoxValue.X;
-        }
+            gameBoard[XSelected.x][XSelected.y] = (int)BoxValue.X;
 
-        [Rule(Action = "CheckPlayerXWin")]
-        static void CheckPlayerXWin()
-        {
-            Condition.IsTrue(gameState == GameState.Running);
+            // Check X win
 
             Condition.IsTrue(CheckWinHorizontal(BoxValue.X)
                            | CheckWinVertical(BoxValue.X)
@@ -64,25 +74,29 @@ namespace TicTacToeMBT
             UpdateScoreRecords();
         }
 
-        [Rule(Action = "PlayerOClick(x,y)")]
-        static void PlayerOClick(int x, int y)
+        [Rule(Action = "PlayerOClick()")]
+        static void PlayerOClick()
         {
             Condition.IsTrue(gameState == GameState.Running);
             Condition.IsTrue(turnState == TurnState.PlayerO);
-            Condition.IsTrue(gameBoard[x][y] == (int)BoxValue.Empty);
+
+            // Non deterministic
+            OSelected.x = Choice.Some<int>(0, 1, 2);
+            OSelected.y = Choice.Some<int>(0, 1, 2);
+
+            Condition.IsTrue(gameBoard[OSelected.x][OSelected.y] == (int)BoxValue.Empty);
 
             // Update turn state
             turnState = TurnState.PlayerX;
 
             // Mark box as O
-            gameBoard[x][y] = (int)BoxValue.O;
-        }
+            gameBoard[OSelected.x][OSelected.y] = (int)BoxValue.O;
 
-        [Rule(Action = "CheckPlayerOWin")]
-        static void CheckPlayerOWin()
-        {
-            Condition.IsTrue(gameState == GameState.Running);
+            // Check Draw
+            if (CheckDraw())
+                gameState = GameState.Draw;
 
+            // Check O win
             Condition.IsTrue(CheckWinHorizontal(BoxValue.O)
                            | CheckWinVertical(BoxValue.O)
                            | CheckWinDiagonal(BoxValue.O));
@@ -100,14 +114,6 @@ namespace TicTacToeMBT
 
         [Rule(Action = "PlayerDraw()")]
         static void PlayerDraw()
-        {
-            Condition.IsTrue(gameState == GameState.Running);
-            Condition.IsTrue(CheckDraw());
-            gameState = GameState.Draw;
-        }
-
-        [Rule(Action = "Draw()")]
-        static void Draw()
         {
             Condition.IsTrue(gameState == GameState.Draw);
             catWins++;
