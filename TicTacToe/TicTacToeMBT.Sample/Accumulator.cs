@@ -28,12 +28,18 @@ namespace TicTacToeMBT.Sample
         }
         public static void Stop()
         {
+            driver.Quit();
         }
         public static void SelectXasFirstPlayer()
         {
+            IWebElement xRadio = driver.FindElement(By.Name("firstMove"));
+            xRadio.Click();
         }
         public static void SelectOasFirstPlayer()
         {
+            IList<IWebElement> firstMoveRadios = driver.FindElements(By.Name("firstMove"));
+            IWebElement oRadio = firstMoveRadios[1];
+            oRadio.Click();
         }
         public static void PlayerXWin()
         {
@@ -46,9 +52,14 @@ namespace TicTacToeMBT.Sample
         }
         public static void ClearStatsClick()
         {
+            IWebElement clearStatsBtn = driver.FindElement(By.Name("newgame"));
+            clearStatsBtn.Click();
         }
         public static void NewGameClick()
         {
+            IList<IWebElement> inputs = driver.FindElements(By.XPath("//input[@value=\"New Game\"]"));
+            IWebElement newGameBtn = inputs[0];
+            newGameBtn.Click();
         }
     }
 }

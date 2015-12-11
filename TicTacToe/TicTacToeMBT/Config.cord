@@ -11,8 +11,8 @@ config Main
     action abstract static void Accumulator.PlayerXWin();
     action abstract static void Accumulator.PlayerOWin();
     action abstract static void Accumulator.PlayerDraw();
-    action abstract static void Accumolator.ClearStatsClick();
-    action abstract static void Accumolator.NewGameClick();
+    action abstract static void Accumulator.ClearStatsClick();
+    action abstract static void Accumulator.NewGameClick();
 
     switch StepBound = 128;
     switch PathDepthBound = 128;

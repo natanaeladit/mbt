@@ -29,7 +29,7 @@ namespace TicTacToeMBT.TestSuite {
         #region Event Metadata
         static System.Reflection.MethodBase PlayerXClickInfo = TestManagerHelpers.GetMethodInfo(typeof(TicTacToeMBT.Sample.Accumulator), "PlayerXClick");
         
-        static System.Reflection.MethodBase ClearStatsClickInfo = TestManagerHelpers.GetMethodInfo(typeof(Accumolator), "ClearStatsClick");
+        static System.Reflection.MethodBase ClearStatsClickInfo = TestManagerHelpers.GetMethodInfo(typeof(TicTacToeMBT.Sample.Accumulator), "ClearStatsClick");
         #endregion
         
         #region Test Initialization and Cleanup
@@ -55,7 +55,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S26\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S39\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S52\'");
@@ -79,7 +79,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S31\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S44\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S57\'");
@@ -94,7 +94,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S106\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.AddReturn(ClearStatsClickInfo, null);
             this.Manager.Comment("reaching state \'S118\'");
             this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S118\'.");
@@ -114,7 +114,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S32\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S45\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S58\'");
@@ -129,7 +129,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S107\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.AddReturn(ClearStatsClickInfo, null);
             this.Manager.Comment("reaching state \'S119\'");
             this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S119\'.");
@@ -149,7 +149,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S33\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S46\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S59\'");
@@ -164,7 +164,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S108\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.AddReturn(ClearStatsClickInfo, null);
             this.Manager.Comment("reaching state \'S120\'");
             this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S120\'.");
@@ -184,7 +184,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S34\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S47\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S60\'");
@@ -199,7 +199,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S109\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.AddReturn(ClearStatsClickInfo, null);
             this.Manager.Comment("reaching state \'S121\'");
             this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S121\'.");
@@ -219,7 +219,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S35\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S48\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S61\'");
@@ -234,7 +234,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S110\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.AddReturn(ClearStatsClickInfo, null);
             this.Manager.Comment("reaching state \'S122\'");
             this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S122\'.");
@@ -254,7 +254,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S27\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S40\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S53\'");
@@ -269,7 +269,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S102\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S114\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S124\'");
@@ -288,7 +288,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S36\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S49\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S62\'");
@@ -303,7 +303,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S111\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.AddReturn(ClearStatsClickInfo, null);
             this.Manager.Comment("reaching state \'S123\'");
             this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S123\'.");
@@ -323,7 +323,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S37\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S50\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S63\'");
@@ -333,7 +333,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return SelectOasFirstPlayer\'");
             this.Manager.Comment("reaching state \'S88\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S100\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S112\'");
@@ -352,17 +352,17 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S38\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S51\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S64\'");
             this.Manager.Comment("executing step \'call NewGameClick()\'");
-            Accumolator.NewGameClick();
+            TicTacToeMBT.Sample.Accumulator.NewGameClick();
             this.Manager.Comment("reaching state \'S77\'");
             this.Manager.Comment("checking step \'return NewGameClick\'");
             this.Manager.Comment("reaching state \'S89\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S101\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S113\'");
@@ -381,7 +381,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S28\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S41\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S54\'");
@@ -396,7 +396,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S103\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S115\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S125\'");
@@ -415,7 +415,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S29\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S42\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S55\'");
@@ -430,7 +430,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S104\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S116\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S126\'");
@@ -449,7 +449,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S30\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S43\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S56\'");
@@ -464,7 +464,7 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S105\'");
             this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            Accumolator.ClearStatsClick();
+            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
             this.Manager.Comment("reaching state \'S117\'");
             this.Manager.Comment("checking step \'return ClearStatsClick\'");
             this.Manager.Comment("reaching state \'S127\'");
