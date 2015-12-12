@@ -44,7 +44,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccumulatorModelProgram.cs" />
+    <Compile Include="TicTacToeModelProgram.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xrt.Runtime, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -57,9 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TicTacToeMBT.Sample\TicTacToeMBT.Sample.csproj">
+    <ProjectReference Include="..\TicTacToeMBT.Sample\TicTacToeMBT.Implementation.csproj">
       <Project>{A04651C9-DAC9-46EE-A7D4-9AC14E8F597B}</Project>
-      <Name>TicTacToeMBT.Sample</Name>
+      <Name>TicTacToeMBT.Implementation</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToeMBT.TestSuite", "TicTacToeMBT.TestSuite\TicTacToeMBT.TestSuite.csproj", "{ABCC3D8F-0CEF-4ED1-B3F6-CF766FAA4135}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToeMBT.Sample", "TicTacToeMBT.Sample\TicTacToeMBT.Sample.csproj", "{A04651C9-DAC9-46EE-A7D4-9AC14E8F597B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToeMBT.Implementation", "TicTacToeMBT.Sample\TicTacToeMBT.Implementation.csproj", "{A04651C9-DAC9-46EE-A7D4-9AC14E8F597B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToeMBT", "TicTacToeMBT\TicTacToeMBT.csproj", "{A4E3AF73-8789-44E6-8A7E-ED28586E4A41}"
 EndProject

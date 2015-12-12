@@ -1,21 +1,20 @@
-﻿using TicTacToeMBT.Sample;
+﻿using TicTacToeMBT.Implementation;
 
 config Main 
 {
     action abstract static void Accumulator.Start();
     action abstract static void Accumulator.Stop();
-    action abstract static void Accumulator.PlayerXClick();
-    action abstract static void Accumulator.PlayerOClick();
-    action abstract static void Accumulator.SelectXasFirstPlayer();
-    action abstract static void Accumulator.SelectOasFirstPlayer();
-    action abstract static void Accumulator.PlayerXWin();
-    action abstract static void Accumulator.PlayerOWin();
-    action abstract static void Accumulator.PlayerDraw();
-    action abstract static void Accumulator.ClearStatsClick();
-    action abstract static void Accumulator.NewGameClick();
+    action abstract static void Accumulator.XTurn(string squareId);
+    action abstract static void Accumulator.OTurn(string squareId);
+    action abstract static void Accumulator.XasFirstPlayer();
+    action abstract static void Accumulator.OasFirstPlayer();
+    action abstract static void Accumulator.ClearStats();
+    action abstract static void Accumulator.NewGame();
 
-    switch StepBound = 128;
-    switch PathDepthBound = 128;
+    switch StepBound = 1024;
+    switch PathDepthBound = 1024;
+    switch StateBound = none;
+    switch DepthFirst = true;
     switch TestClassBase = "vs";
     switch GeneratedTestPath = "..\\TicTacToeMBT.TestSuite";
     switch GeneratedTestNamespace = "TicTacToeMBT.TestSuite";
@@ -30,12 +29,18 @@ config ParameterCombination: Main
 
     action abstract static void Accumulator.PlayerOClick(int x, int y)
         where x in {0..2}, y in {0..2};*/
+
+    action abstract static void Accumulator.XTurn(string squareId)
+        where squareId in {"c1","c2","c3","c4","c5","c6","c7","c8","c9"};
+
+    action abstract static void Accumulator.OTurn(string squareId)
+        where squareId in {"c1","c2","c3","c4","c5","c6","c7","c8","c9"};
 }
 
 machine AccumulatorModelProgram() : Main where ForExploration = true
 {
     construct model program from ParameterCombination 
-    where scope = "TicTacToeMBT.AccumulatorModelProgram" //The value of the namespace switch can be a .Net namespace or a fully-qualified class name.
+    where scope = "TicTacToeMBT.TicTacToeModelProgram" //The value of the namespace switch can be a .Net namespace or a fully-qualified class name.
 }
 
 machine AccumulatorTestSuite() : Main where ForExploration = true, TestEnabled = true

@@ -26,12 +26,6 @@ namespace TicTacToeMBT.TestSuite {
             this.SetSwitch("QuiescenceTimeout", "30000");
         }
         
-        #region Event Metadata
-        static System.Reflection.MethodBase PlayerXClickInfo = TestManagerHelpers.GetMethodInfo(typeof(TicTacToeMBT.Sample.Accumulator), "PlayerXClick");
-        
-        static System.Reflection.MethodBase ClearStatsClickInfo = TestManagerHelpers.GetMethodInfo(typeof(TicTacToeMBT.Sample.Accumulator), "ClearStatsClick");
-        #endregion
-        
         #region Test Initialization and Cleanup
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute()]
         public virtual void TestInitialize() {
@@ -43,167 +37,233 @@ namespace TicTacToeMBT.TestSuite {
             this.CleanupTestManager();
         }
         #endregion
-        
+        /*
         #region Test Starting in S0
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         public void AccumulatorTestSuiteS0() {
             this.Manager.BeginTest("AccumulatorTestSuiteS0");
             this.Manager.Comment("reaching state \'S0\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
+            TicTacToeMBT.Implementation.Accumulator.Start();
             this.Manager.Comment("reaching state \'S1\'");
             this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S26\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S39\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S52\'");
-            this.Manager.Comment("executing step \'call PlayerXClick()\'");
-            TicTacToeMBT.Sample.Accumulator.PlayerXClick();
-            this.Manager.AddReturn(PlayerXClickInfo, null);
-            this.Manager.Comment("reaching state \'S65\'");
-            this.Manager.Assert(false, "reached non-accepting end state \'S65\'.");
+            this.Manager.Comment("reaching state \'S2\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S3\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S4\'");
+            this.Manager.Comment("executing step \'call NewGame()\'");
+            TicTacToeMBT.Implementation.Accumulator.NewGame();
+            this.Manager.Comment("reaching state \'S5\'");
+            this.Manager.Comment("checking step \'return NewGame\'");
+            this.Manager.Comment("reaching state \'S6\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S7\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S8\'");
             this.Manager.EndTest();
         }
         #endregion
         
-        #region Test Starting in S10
+        #region Test Starting in S110
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS10() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS10");
-            this.Manager.Comment("reaching state \'S10\'");
+        public void AccumulatorTestSuiteS110() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS110");
+            this.Manager.Comment("reaching state \'S110\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S11\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S111\'");
             this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S31\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S44\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S57\'");
-            this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S70\'");
-            this.Manager.Comment("checking step \'return Stop\'");
-            this.Manager.Comment("reaching state \'S82\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S94\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S106\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.AddReturn(ClearStatsClickInfo, null);
+            this.Manager.Comment("reaching state \'S112\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S113\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S114\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S115\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S116\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S117\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
             this.Manager.Comment("reaching state \'S118\'");
-            this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S118\'.");
-            this.Manager.Assert(false, "reached non-accepting end state \'S118\'.");
-            this.Manager.EndTest();
-        }
-        #endregion
-        
-        #region Test Starting in S12
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS12() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS12");
-            this.Manager.Comment("reaching state \'S12\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S13\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S32\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S45\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S58\'");
-            this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S71\'");
-            this.Manager.Comment("checking step \'return Stop\'");
-            this.Manager.Comment("reaching state \'S83\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S95\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S107\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.AddReturn(ClearStatsClickInfo, null);
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
             this.Manager.Comment("reaching state \'S119\'");
-            this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S119\'.");
-            this.Manager.Assert(false, "reached non-accepting end state \'S119\'.");
-            this.Manager.EndTest();
-        }
-        #endregion
-        
-        #region Test Starting in S14
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS14() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS14");
-            this.Manager.Comment("reaching state \'S14\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S15\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S33\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S46\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S59\'");
-            this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S72\'");
-            this.Manager.Comment("checking step \'return Stop\'");
-            this.Manager.Comment("reaching state \'S84\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S96\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S108\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.AddReturn(ClearStatsClickInfo, null);
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
             this.Manager.Comment("reaching state \'S120\'");
-            this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S120\'.");
-            this.Manager.Assert(false, "reached non-accepting end state \'S120\'.");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S121\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S122\'");
+            this.Manager.Comment("executing step \'call NewGame()\'");
+            TicTacToeMBT.Implementation.Accumulator.NewGame();
+            this.Manager.Comment("reaching state \'S123\'");
+            this.Manager.Comment("checking step \'return NewGame\'");
+            this.Manager.Comment("reaching state \'S124\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S125\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S126\'");
             this.Manager.EndTest();
         }
         #endregion
         
-        #region Test Starting in S16
+        #region Test Starting in S127
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS16() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS16");
-            this.Manager.Comment("reaching state \'S16\'");
+        public void AccumulatorTestSuiteS127() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS127");
+            this.Manager.Comment("reaching state \'S127\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S17\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S128\'");
             this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S34\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S47\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S60\'");
+            this.Manager.Comment("reaching state \'S129\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S130\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S131\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S132\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S133\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S134\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S135\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S136\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S137\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S138\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S139\'");
+            this.Manager.Comment("executing step \'call XasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.XasFirstPlayer();
+            this.Manager.Comment("reaching state \'S140\'");
+            this.Manager.Comment("checking step \'return XasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S141\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S142\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S143\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S144
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS144() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS144");
+            this.Manager.Comment("reaching state \'S144\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S145\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S146\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S147\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S148\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S149\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S150\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S151\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S152\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S153\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S154\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S155\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S156\'");
             this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S73\'");
+            TicTacToeMBT.Implementation.Accumulator.Stop();
+            this.Manager.Comment("reaching state \'S157\'");
             this.Manager.Comment("checking step \'return Stop\'");
-            this.Manager.Comment("reaching state \'S85\'");
+            this.Manager.Comment("reaching state \'S158\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S97\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S159\'");
             this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S109\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.AddReturn(ClearStatsClickInfo, null);
-            this.Manager.Comment("reaching state \'S121\'");
-            this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S121\'.");
-            this.Manager.Assert(false, "reached non-accepting end state \'S121\'.");
+            this.Manager.Comment("reaching state \'S160\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S161\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S162\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S163
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS163() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS163");
+            this.Manager.Comment("reaching state \'S163\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S164\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S165\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S166\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S167\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S168\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S169\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S170\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S171\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S172\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S173\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S174\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S175\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c7\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c7");
+            this.Manager.Comment("reaching state \'S176\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S177\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S178\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S179\'");
             this.Manager.EndTest();
         }
         #endregion
@@ -214,262 +274,1773 @@ namespace TicTacToeMBT.TestSuite {
             this.Manager.BeginTest("AccumulatorTestSuiteS18");
             this.Manager.Comment("reaching state \'S18\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
+            TicTacToeMBT.Implementation.Accumulator.Start();
             this.Manager.Comment("reaching state \'S19\'");
             this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S35\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S48\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S61\'");
+            this.Manager.Comment("reaching state \'S20\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S21\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S22\'");
             this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S74\'");
+            TicTacToeMBT.Implementation.Accumulator.Stop();
+            this.Manager.Comment("reaching state \'S23\'");
             this.Manager.Comment("checking step \'return Stop\'");
-            this.Manager.Comment("reaching state \'S86\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S98\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S110\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.AddReturn(ClearStatsClickInfo, null);
-            this.Manager.Comment("reaching state \'S122\'");
-            this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S122\'.");
-            this.Manager.Assert(false, "reached non-accepting end state \'S122\'.");
+            this.Manager.Comment("reaching state \'S24\'");
             this.Manager.EndTest();
         }
         #endregion
         
-        #region Test Starting in S2
+        #region Test Starting in S180
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS2() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS2");
-            this.Manager.Comment("reaching state \'S2\'");
+        public void AccumulatorTestSuiteS180() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS180");
+            this.Manager.Comment("reaching state \'S180\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S3\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S181\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S182\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S183\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S184\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S185\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S186\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S187\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S188\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S189\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S190\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S191\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S192\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c6\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c6");
+            this.Manager.Comment("reaching state \'S193\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S194\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S195\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S196\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S197
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS197() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS197");
+            this.Manager.Comment("reaching state \'S197\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S198\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S199\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S200\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S201\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S202\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S203\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S204\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S205\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S206\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S207\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S208\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S209\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c5\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c5");
+            this.Manager.Comment("reaching state \'S210\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S211\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S212\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S213\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S214
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS214() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS214");
+            this.Manager.Comment("reaching state \'S214\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S215\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S216\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S217\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S218\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S219\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S220\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S221\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S222\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S223\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S224\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S225\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S226\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c4\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c4");
+            this.Manager.Comment("reaching state \'S227\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S228\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S229\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S230\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S231
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS231() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS231");
+            this.Manager.Comment("reaching state \'S231\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S232\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S233\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S234\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S235\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S236\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S237\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S238\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S239\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S240\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S241\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S242\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S243\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c3\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c3");
+            this.Manager.Comment("reaching state \'S244\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S245\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S246\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S247\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S248
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS248() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS248");
+            this.Manager.Comment("reaching state \'S248\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S249\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S250\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S251\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S252\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S253\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S254\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S255\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S256\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S257\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S258\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S259\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S260\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c2\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c2");
+            this.Manager.Comment("reaching state \'S261\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S262\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S263\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S264\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S25
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS25() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS25");
+            this.Manager.Comment("reaching state \'S25\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S26\'");
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S27\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S40\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S53\'");
-            this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S66\'");
-            this.Manager.Comment("checking step \'return Stop\'");
-            this.Manager.Comment("reaching state \'S78\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S90\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S102\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S114\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S124\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S28\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S29\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c7\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c7");
+            this.Manager.Comment("reaching state \'S30\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S31\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S32\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S33\'");
             this.Manager.EndTest();
         }
         #endregion
         
-        #region Test Starting in S20
+        #region Test Starting in S265
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS20() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS20");
-            this.Manager.Comment("reaching state \'S20\'");
+        public void AccumulatorTestSuiteS265() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS265");
+            this.Manager.Comment("reaching state \'S265\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S21\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S266\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S267\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S268\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S269\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S270\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S271\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S272\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S273\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S274\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S275\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S276\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S277\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c8\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c8");
+            this.Manager.Comment("reaching state \'S278\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S279\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S280\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S281\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S282
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS282() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS282");
+            this.Manager.Comment("reaching state \'S282\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S283\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S284\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S285\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S286\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S287\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S288\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S289\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S290\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S291\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S292\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S293\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S294\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c1\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c1");
+            this.Manager.Comment("reaching state \'S295\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S296\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S297\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S298\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S299
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS299() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS299");
+            this.Manager.Comment("reaching state \'S299\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S300\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S301\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S302\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S303\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S304\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S305\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S306\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S307\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S308\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S309\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S310\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S311\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S312\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S313\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S314\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S315\'");
+            this.Manager.Comment("executing step \'call NewGame()\'");
+            TicTacToeMBT.Implementation.Accumulator.NewGame();
+            this.Manager.Comment("reaching state \'S316\'");
+            this.Manager.Comment("checking step \'return NewGame\'");
+            this.Manager.Comment("reaching state \'S317\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S318\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S319\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S320
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS320() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS320");
+            this.Manager.Comment("reaching state \'S320\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S321\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S322\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S323\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S324\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S325\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S326\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S327\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S328\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S329\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S330\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S331\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S332\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S333\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S334\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S335\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S336\'");
+            this.Manager.Comment("executing step \'call XasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.XasFirstPlayer();
+            this.Manager.Comment("reaching state \'S337\'");
+            this.Manager.Comment("checking step \'return XasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S338\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S339\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S340\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S34
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS34() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS34");
+            this.Manager.Comment("reaching state \'S34\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S35\'");
             this.Manager.Comment("checking step \'return Start\'");
             this.Manager.Comment("reaching state \'S36\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S49\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S62\'");
-            this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S75\'");
-            this.Manager.Comment("checking step \'return Stop\'");
-            this.Manager.Comment("reaching state \'S87\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S99\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S111\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.AddReturn(ClearStatsClickInfo, null);
-            this.Manager.Comment("reaching state \'S123\'");
-            this.Manager.Assert(false, "exploration of test code generation hit a state bound at state \'S123\'.");
-            this.Manager.Assert(false, "reached non-accepting end state \'S123\'.");
-            this.Manager.EndTest();
-        }
-        #endregion
-        
-        #region Test Starting in S22
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS22() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS22");
-            this.Manager.Comment("reaching state \'S22\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S23\'");
-            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
             this.Manager.Comment("reaching state \'S37\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S50\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S63\'");
-            this.Manager.Comment("executing step \'call SelectOasFirstPlayer()\'");
-            TicTacToeMBT.Sample.Accumulator.SelectOasFirstPlayer();
-            this.Manager.Comment("reaching state \'S76\'");
-            this.Manager.Comment("checking step \'return SelectOasFirstPlayer\'");
-            this.Manager.Comment("reaching state \'S88\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S100\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S112\'");
-            this.Manager.EndTest();
-        }
-        #endregion
-        
-        #region Test Starting in S24
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS24() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS24");
-            this.Manager.Comment("reaching state \'S24\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S25\'");
-            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
             this.Manager.Comment("reaching state \'S38\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S51\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S64\'");
-            this.Manager.Comment("executing step \'call NewGameClick()\'");
-            TicTacToeMBT.Sample.Accumulator.NewGameClick();
-            this.Manager.Comment("reaching state \'S77\'");
-            this.Manager.Comment("checking step \'return NewGameClick\'");
-            this.Manager.Comment("reaching state \'S89\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S101\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S113\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c6\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c6");
+            this.Manager.Comment("reaching state \'S39\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S40\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S41\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S42\'");
             this.Manager.EndTest();
         }
         #endregion
         
-        #region Test Starting in S4
+        #region Test Starting in S341
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS4() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS4");
-            this.Manager.Comment("reaching state \'S4\'");
+        public void AccumulatorTestSuiteS341() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS341");
+            this.Manager.Comment("reaching state \'S341\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S5\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S342\'");
             this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S28\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S41\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S54\'");
+            this.Manager.Comment("reaching state \'S343\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S344\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S345\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S346\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S347\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S348\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S349\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S350\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S351\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S352\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S353\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S354\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S355\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S356\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S357\'");
             this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S67\'");
+            TicTacToeMBT.Implementation.Accumulator.Stop();
+            this.Manager.Comment("reaching state \'S358\'");
             this.Manager.Comment("checking step \'return Stop\'");
+            this.Manager.Comment("reaching state \'S359\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S360\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S361\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S362\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S363\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S364
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS364() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS364");
+            this.Manager.Comment("reaching state \'S364\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S365\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S366\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S367\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S368\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S369\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S370\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S371\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S372\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S373\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S374\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S375\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S376\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S377\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S378\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S379\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S380\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c7\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c7");
+            this.Manager.Comment("reaching state \'S381\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S382\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S383\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S384\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S385
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS385() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS385");
+            this.Manager.Comment("reaching state \'S385\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S386\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S387\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S388\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S389\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S390\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S391\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S392\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S393\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S394\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S395\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S396\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S397\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S398\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S399\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S400\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S401\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c6\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c6");
+            this.Manager.Comment("reaching state \'S402\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S403\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S404\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S405\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S406
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS406() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS406");
+            this.Manager.Comment("reaching state \'S406\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S407\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S408\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S409\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S410\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S411\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S412\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S413\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S414\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S415\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S416\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S417\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S418\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S419\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S420\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S421\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S422\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c5\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c5");
+            this.Manager.Comment("reaching state \'S423\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S424\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S425\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S426\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S427
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS427() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS427");
+            this.Manager.Comment("reaching state \'S427\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S428\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S429\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S430\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S431\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S432\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S433\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S434\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S435\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S436\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S437\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S438\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S439\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S440\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S441\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S442\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S443\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c4\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c4");
+            this.Manager.Comment("reaching state \'S444\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S445\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S446\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S447\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S43
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS43() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS43");
+            this.Manager.Comment("reaching state \'S43\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S44\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S45\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S46\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S47\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c5\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c5");
+            this.Manager.Comment("reaching state \'S48\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S49\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S50\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S51\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S448
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS448() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS448");
+            this.Manager.Comment("reaching state \'S448\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S449\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S450\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S451\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S452\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S453\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S454\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S455\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S456\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S457\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S458\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S459\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S460\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S461\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S462\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S463\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S464\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c3\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c3");
+            this.Manager.Comment("reaching state \'S465\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S466\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S467\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S468\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S469
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS469() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS469");
+            this.Manager.Comment("reaching state \'S469\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S470\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S471\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S472\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S473\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S474\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S475\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S476\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S477\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S478\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S479\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S480\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S481\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S482\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S483\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S484\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S485\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c2\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c2");
+            this.Manager.Comment("reaching state \'S486\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S487\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S488\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S489\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S490
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS490() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS490");
+            this.Manager.Comment("reaching state \'S490\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S491\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S492\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S493\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S494\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S495\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S496\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S497\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S498\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S499\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S500\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S501\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S502\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S503\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S504\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S505\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S506\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c8\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c8");
+            this.Manager.Comment("reaching state \'S507\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S508\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S509\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S510\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S511
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS511() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS511");
+            this.Manager.Comment("reaching state \'S511\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S512\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S513\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S514\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S515\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S516\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S517\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S518\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S519\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S520\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S521\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S522\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S523\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S524\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S525\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S526\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S527\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c1\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c1");
+            this.Manager.Comment("reaching state \'S528\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S529\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S530\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S531\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S52
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS52() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS52");
+            this.Manager.Comment("reaching state \'S52\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S53\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S54\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S55\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S56\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c4\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c4");
+            this.Manager.Comment("reaching state \'S57\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S58\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S59\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S60\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S532
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS532() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS532");
+            this.Manager.Comment("reaching state \'S532\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S533\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S534\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S535\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S536\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S537\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S538\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S539\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S540\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S541\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S542\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S543\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S544\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S545\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S546\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S547\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S548\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S549\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S550\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S551\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S552\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S553
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS553() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS553");
+            this.Manager.Comment("reaching state \'S553\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S554\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S555\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S556\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S557\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S558\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S559\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S560\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S561\'");
+            this.Manager.Comment("executing step \'call Stop()\'");
+            TicTacToeMBT.Implementation.Accumulator.Stop();
+            this.Manager.Comment("reaching state \'S562\'");
+            this.Manager.Comment("checking step \'return Stop\'");
+            this.Manager.Comment("reaching state \'S563\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S564\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S565\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S566\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S567\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S568
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS568() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS568");
+            this.Manager.Comment("reaching state \'S568\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S569\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S570\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S571\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S572\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S573\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S574\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S575\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S576\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c7\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c7");
+            this.Manager.Comment("reaching state \'S577\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S578\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S579\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S580\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S581
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS581() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS581");
+            this.Manager.Comment("reaching state \'S581\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S582\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S583\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S584\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S585\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S586\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S587\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S588\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S589\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c6\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c6");
+            this.Manager.Comment("reaching state \'S590\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S591\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S592\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S593\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S594
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS594() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS594");
+            this.Manager.Comment("reaching state \'S594\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S595\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S596\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S597\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S598\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S599\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S600\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S601\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S602\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c5\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c5");
+            this.Manager.Comment("reaching state \'S603\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S604\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S605\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S606\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S607
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS607() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS607");
+            this.Manager.Comment("reaching state \'S607\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S608\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S609\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S610\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S611\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S612\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S613\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S614\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S615\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c4\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c4");
+            this.Manager.Comment("reaching state \'S616\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S617\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S618\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S619\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S61
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS61() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS61");
+            this.Manager.Comment("reaching state \'S61\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S62\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S63\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S64\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S65\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c2\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c2");
+            this.Manager.Comment("reaching state \'S66\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S67\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S68\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S69\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S620
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS620() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS620");
+            this.Manager.Comment("reaching state \'S620\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S621\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S622\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S623\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S624\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S625\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S626\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S627\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S628\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c3\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c3");
+            this.Manager.Comment("reaching state \'S629\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S630\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S631\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S632\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S633
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS633() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS633");
+            this.Manager.Comment("reaching state \'S633\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S634\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S635\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S636\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S637\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S638\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S639\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S640\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S641\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c2\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c2");
+            this.Manager.Comment("reaching state \'S642\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S643\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S644\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S645\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S646
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS646() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS646");
+            this.Manager.Comment("reaching state \'S646\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S647\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S648\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S649\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S650\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S651\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S652\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S653\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S654\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c8\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c8");
+            this.Manager.Comment("reaching state \'S655\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S656\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S657\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S658\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S659
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS659() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS659");
+            this.Manager.Comment("reaching state \'S659\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S660\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S661\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S662\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S663\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S664\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S665\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S666\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S667\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c1\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c1");
+            this.Manager.Comment("reaching state \'S668\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S669\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S670\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S671\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S672
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS672() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS672");
+            this.Manager.Comment("reaching state \'S672\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S673\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S674\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S675\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S676\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S677\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S678\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S679\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S680\'");
+            this.Manager.Comment("executing step \'call OTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.OTurn("c9");
+            this.Manager.Comment("reaching state \'S681\'");
+            this.Manager.Comment("checking step \'return OTurn\'");
+            this.Manager.Comment("reaching state \'S682\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S683\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S684\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S70
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS70() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS70");
+            this.Manager.Comment("reaching state \'S70\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S71\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S72\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S73\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S74\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c8\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c8");
+            this.Manager.Comment("reaching state \'S75\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S76\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S77\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S78\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S79
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS79() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS79");
             this.Manager.Comment("reaching state \'S79\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S91\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S103\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S115\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S125\'");
-            this.Manager.EndTest();
-        }
-        #endregion
-        
-        #region Test Starting in S6
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS6() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS6");
-            this.Manager.Comment("reaching state \'S6\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S7\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S29\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S42\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S55\'");
-            this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S68\'");
-            this.Manager.Comment("checking step \'return Stop\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
             this.Manager.Comment("reaching state \'S80\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S92\'");
             this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S104\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S116\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S126\'");
+            this.Manager.Comment("reaching state \'S81\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S82\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S83\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c3\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c3");
+            this.Manager.Comment("reaching state \'S84\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S85\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S86\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S87\'");
             this.Manager.EndTest();
         }
         #endregion
         
-        #region Test Starting in S8
+        #region Test Starting in S88
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void AccumulatorTestSuiteS8() {
-            this.Manager.BeginTest("AccumulatorTestSuiteS8");
-            this.Manager.Comment("reaching state \'S8\'");
+        public void AccumulatorTestSuiteS88() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS88");
+            this.Manager.Comment("reaching state \'S88\'");
             this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
-            this.Manager.Comment("reaching state \'S9\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S89\'");
             this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S30\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S43\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S56\'");
-            this.Manager.Comment("executing step \'call Stop()\'");
-            TicTacToeMBT.Sample.Accumulator.Stop();
-            this.Manager.Comment("reaching state \'S69\'");
-            this.Manager.Comment("checking step \'return Stop\'");
-            this.Manager.Comment("reaching state \'S81\'");
-            this.Manager.Comment("executing step \'call Start()\'");
-            TicTacToeMBT.Sample.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S90\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S91\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S92\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c1\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c1");
             this.Manager.Comment("reaching state \'S93\'");
-            this.Manager.Comment("checking step \'return Start\'");
-            this.Manager.Comment("reaching state \'S105\'");
-            this.Manager.Comment("executing step \'call ClearStatsClick()\'");
-            TicTacToeMBT.Sample.Accumulator.ClearStatsClick();
-            this.Manager.Comment("reaching state \'S117\'");
-            this.Manager.Comment("checking step \'return ClearStatsClick\'");
-            this.Manager.Comment("reaching state \'S127\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S94\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S95\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S96\'");
             this.Manager.EndTest();
         }
         #endregion
+        
+        #region Test Starting in S9
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS9() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS9");
+            this.Manager.Comment("reaching state \'S9\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S10\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S11\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S12\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S13\'");
+            this.Manager.Comment("executing step \'call OasFirstPlayer()\'");
+            TicTacToeMBT.Implementation.Accumulator.OasFirstPlayer();
+            this.Manager.Comment("reaching state \'S14\'");
+            this.Manager.Comment("checking step \'return OasFirstPlayer\'");
+            this.Manager.Comment("reaching state \'S15\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S16\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S17\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+        
+        #region Test Starting in S97
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        public void AccumulatorTestSuiteS97() {
+            this.Manager.BeginTest("AccumulatorTestSuiteS97");
+            this.Manager.Comment("reaching state \'S97\'");
+            this.Manager.Comment("executing step \'call Start()\'");
+            TicTacToeMBT.Implementation.Accumulator.Start();
+            this.Manager.Comment("reaching state \'S98\'");
+            this.Manager.Comment("checking step \'return Start\'");
+            this.Manager.Comment("reaching state \'S99\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S100\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S101\'");
+            this.Manager.Comment("executing step \'call XTurn(\"c9\")\'");
+            TicTacToeMBT.Implementation.Accumulator.XTurn("c9");
+            this.Manager.Comment("reaching state \'S102\'");
+            this.Manager.Comment("checking step \'return XTurn\'");
+            this.Manager.Comment("reaching state \'S103\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S104\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S105\'");
+            this.Manager.Comment("executing step \'call NewGame()\'");
+            TicTacToeMBT.Implementation.Accumulator.NewGame();
+            this.Manager.Comment("reaching state \'S106\'");
+            this.Manager.Comment("checking step \'return NewGame\'");
+            this.Manager.Comment("reaching state \'S107\'");
+            this.Manager.Comment("executing step \'call ClearStats()\'");
+            TicTacToeMBT.Implementation.Accumulator.ClearStats();
+            this.Manager.Comment("reaching state \'S108\'");
+            this.Manager.Comment("checking step \'return ClearStats\'");
+            this.Manager.Comment("reaching state \'S109\'");
+            this.Manager.EndTest();
+        }
+        #endregion*/
     }
 }
