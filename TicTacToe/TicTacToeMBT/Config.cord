@@ -22,19 +22,67 @@ config Main
     switch ForExploration = false;
 }
 
+config GameBoardMain 
+{
+    action abstract static void Accumulator.Move1(int x, int y);
+    action abstract static void Accumulator.Move2(int x, int y);
+    action abstract static void Accumulator.Move3(int x, int y);
+    action abstract static void Accumulator.Move4(int x, int y);
+    action abstract static void Accumulator.Move5(int x, int y);
+    action abstract static void Accumulator.Move6(int x, int y);
+    action abstract static void Accumulator.Move7(int x, int y);
+    action abstract static void Accumulator.Move8(int x, int y);
+    action abstract static void Accumulator.Move9(int x, int y);
+
+    switch StepBound = 256;
+    switch PathDepthBound = 18;
+    switch StateBound = none;
+    switch DepthFirst = true;
+    switch StepsPerStateBound = 2;
+    switch TestClassBase = "vs";
+    switch GeneratedTestPath = "..\\TicTacToeMBT.TestSuite";
+    switch GeneratedTestNamespace = "TicTacToeMBT.TestSuite";
+    switch TestEnabled = false;
+    switch ForExploration = false;
+}
+
 config ParameterCombination: Main 
 {
-    /*action abstract static void Accumulator.PlayerXClick(int x, int y)
-        where x in {0..2}, y in {0..2};
-
-    action abstract static void Accumulator.PlayerOClick(int x, int y)
-        where x in {0..2}, y in {0..2};*/
-
     action abstract static void Accumulator.XTurn(string squareId)
         where squareId in {"c1","c2","c3","c4","c5","c6","c7","c8","c9"};
 
     action abstract static void Accumulator.OTurn(string squareId)
         where squareId in {"c1","c2","c3","c4","c5","c6","c7","c8","c9"};
+}
+
+config GameBoardCombination: GameBoardMain 
+{
+    action abstract static void Accumulator.Move1(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.Move2(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.Move3(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.Move4(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.Move5(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.Move6(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.Move7(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.Move8(int x, int y)
+        where x in {0..2}, y in {0..2};
+
+    action abstract static void Accumulator.Move9(int x, int y)
+        where x in {0..2}, y in {0..2};
 }
 
 machine AccumulatorModelProgram() : Main where ForExploration = true
@@ -46,4 +94,15 @@ machine AccumulatorModelProgram() : Main where ForExploration = true
 machine AccumulatorTestSuite() : Main where ForExploration = true, TestEnabled = true
 {
     construct test cases where strategy = "ShortTests", AllowUndeterminedCoverage = true for AccumulatorModelProgram()
+}
+
+machine GameBoardModelProgram() : GameBoardMain where ForExploration = true
+{
+    construct model program from GameBoardCombination 
+    where scope = "TicTacToeMBT.GameBoardModelProgram"
+}
+
+machine GameBoardTestSuite() : GameBoardMain where ForExploration = true, TestEnabled = true
+{
+    construct test cases where strategy = "ShortTests", AllowUndeterminedCoverage = true for GameBoardModelProgram()
 }

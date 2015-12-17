@@ -31,7 +31,7 @@ namespace TicTacToeMBT.TestSuite
             TicTacToeMBT.Implementation.Accumulator.Stop();
         }
 
-        #region Selected tests
+        #region Selected tests from Tic Tac Toe Model
 
         #region Test Starting in S341
         [Test]
@@ -872,9 +872,231 @@ namespace TicTacToeMBT.TestSuite
             this.Manager.Comment("executing step \'call ClearStats()\'");
             TicTacToeMBT.Implementation.Accumulator.ClearStats();
             this.Manager.Comment("reaching state \'S404\'");
-            this.Manager.Comment("checking step \'return ClearStats\'"); 
+            this.Manager.Comment("checking step \'return ClearStats\'");
             AssertClearStats();
             this.Manager.Comment("reaching state \'S405\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+
+        #endregion
+
+        #region Selected tests from GameBoard Model
+
+        #region Test Starting in S30 (Draw)
+        [Test]
+        public void GameBoardTestSuiteS30()
+        {
+            this.Manager.BeginTest("GameBoardTestSuiteS30");
+            this.Manager.Comment("reaching state \'S30\'");
+            this.Manager.Comment("executing step \'call Move1(2,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move1(2, 1);
+            this.Manager.Comment("reaching state \'S31\'");
+            this.Manager.Comment("checking step \'return Move1\'");
+            int oWins = TicTacToeMBT.Implementation.Accumulator.GetOWins();
+            int xWins = TicTacToeMBT.Implementation.Accumulator.GetXWins();
+            int catWins = TicTacToeMBT.Implementation.Accumulator.GetCatWins();
+            decimal oRecord = TicTacToeMBT.Implementation.Accumulator.GetORecord();
+            decimal xRecord = TicTacToeMBT.Implementation.Accumulator.GetXRecord();
+            decimal catRecord = TicTacToeMBT.Implementation.Accumulator.GetCatRecord();
+            this.Manager.Comment("reaching state \'S32\'");
+            this.Manager.Comment("executing step \'call Move2(2,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move2(2, 0);
+            this.Manager.Comment("reaching state \'S33\'");
+            this.Manager.Comment("checking step \'return Move2\'");
+            this.Manager.Comment("reaching state \'S34\'");
+            this.Manager.Comment("executing step \'call Move3(0,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move3(0, 2);
+            this.Manager.Comment("reaching state \'S35\'");
+            this.Manager.Comment("checking step \'return Move3\'");
+            this.Manager.Comment("reaching state \'S36\'");
+            this.Manager.Comment("executing step \'call Move4(0,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move4(0, 0);
+            this.Manager.Comment("reaching state \'S37\'");
+            this.Manager.Comment("checking step \'return Move4\'");
+            this.Manager.Comment("reaching state \'S38\'");
+            this.Manager.Comment("executing step \'call Move5(2,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move5(2, 2);
+            this.Manager.Comment("reaching state \'S39\'");
+            this.Manager.Comment("checking step \'return Move5\'");
+            this.Manager.Comment("reaching state \'S40\'");
+            this.Manager.Comment("executing step \'call Move6(1,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move6(1, 2);
+            this.Manager.Comment("reaching state \'S41\'");
+            this.Manager.Comment("checking step \'return Move6\'");
+            this.Manager.Comment("reaching state \'S42\'");
+            this.Manager.Comment("executing step \'call Move7(1,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move7(1, 0);
+            this.Manager.Comment("reaching state \'S43\'");
+            this.Manager.Comment("checking step \'return Move7\'");
+            this.Manager.Comment("reaching state \'S44\'");
+            this.Manager.Comment("executing step \'call Move8(0,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move8(0, 1);
+            this.Manager.Comment("reaching state \'S45\'");
+            this.Manager.Comment("checking step \'return Move8\'");
+            this.Manager.Comment("reaching state \'S46\'");
+            this.Manager.Comment("executing step \'call Move9(1,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move9(1, 1);
+            this.Manager.Comment("reaching state \'S47\'");
+            this.Manager.Comment("checking step \'return Move9\'");
+            AssertDraw();
+            NUnit.Framework.Assert.AreEqual(oWins, TicTacToeMBT.Implementation.Accumulator.GetOWins());
+            NUnit.Framework.Assert.AreEqual(xWins, TicTacToeMBT.Implementation.Accumulator.GetXWins());
+            NUnit.Framework.Assert.AreEqual(catWins + 1, TicTacToeMBT.Implementation.Accumulator.GetCatWins());
+            NUnit.Framework.Assert.AreEqual(oRecord, TicTacToeMBT.Implementation.Accumulator.GetORecord());
+            NUnit.Framework.Assert.AreEqual(xRecord, TicTacToeMBT.Implementation.Accumulator.GetXRecord());
+            NUnit.Framework.Assert.AreEqual((catWins + 1) / ((catWins + 1) + xWins + oWins) * 100, TicTacToeMBT.Implementation.Accumulator.GetCatRecord());
+            this.Manager.Comment("reaching state \'S48\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+
+        #region Test Starting in S132 (Player Win Diagonal)
+        [Test]
+        public void GameBoardTestSuiteS132()
+        {
+            this.Manager.BeginTest("GameBoardTestSuiteS132");
+            this.Manager.Comment("reaching state \'S132\'");
+            this.Manager.Comment("executing step \'call Move1(2,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move1(2, 1);
+            this.Manager.Comment("reaching state \'S133\'");
+            this.Manager.Comment("checking step \'return Move1\'");
+            int oWins = TicTacToeMBT.Implementation.Accumulator.GetOWins();
+            int xWins = TicTacToeMBT.Implementation.Accumulator.GetXWins();
+            int catWins = TicTacToeMBT.Implementation.Accumulator.GetCatWins();
+            decimal oRecord = TicTacToeMBT.Implementation.Accumulator.GetORecord();
+            decimal xRecord = TicTacToeMBT.Implementation.Accumulator.GetXRecord();
+            decimal catRecord = TicTacToeMBT.Implementation.Accumulator.GetCatRecord();
+            this.Manager.Comment("reaching state \'S134\'");
+            this.Manager.Comment("executing step \'call Move2(2,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move2(2, 0);
+            this.Manager.Comment("reaching state \'S135\'");
+            this.Manager.Comment("checking step \'return Move2\'");
+            this.Manager.Comment("reaching state \'S136\'");
+            this.Manager.Comment("executing step \'call Move3(0,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move3(0, 2);
+            this.Manager.Comment("reaching state \'S137\'");
+            this.Manager.Comment("checking step \'return Move3\'");
+            this.Manager.Comment("reaching state \'S138\'");
+            this.Manager.Comment("executing step \'call Move4(0,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move4(0, 0);
+            this.Manager.Comment("reaching state \'S139\'");
+            this.Manager.Comment("checking step \'return Move4\'");
+            this.Manager.Comment("reaching state \'S140\'");
+            this.Manager.Comment("executing step \'call Move5(0,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move5(0, 1);
+            this.Manager.Comment("reaching state \'S141\'");
+            this.Manager.Comment("checking step \'return Move5\'");
+            this.Manager.Comment("reaching state \'S142\'");
+            this.Manager.Comment("executing step \'call Move6(1,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move6(1, 1);
+            this.Manager.Comment("reaching state \'S143\'");
+            this.Manager.Comment("checking step \'return Move6\'");
+            this.Manager.Comment("reaching state \'S144\'");
+            this.Manager.Comment("executing step \'call Move7(1,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move7(1, 0);
+            this.Manager.Comment("reaching state \'S145\'");
+            this.Manager.Comment("checking step \'return Move7\'");
+            this.Manager.Comment("reaching state \'S146\'");
+            this.Manager.Comment("executing step \'call Move8(2,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move8(2, 2);
+            this.Manager.Comment("reaching state \'S147\'");
+            this.Manager.Comment("checking step \'return Move8\'");
+            AssertWinDiagonal();
+            this.Manager.Comment("reaching state \'S148\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+
+        #region Test Starting in S249 (Player Win Horizontal)
+        [Test]
+        public void GameBoardTestSuiteS249()
+        {
+            this.Manager.BeginTest("GameBoardTestSuiteS249");
+            this.Manager.Comment("reaching state \'S249\'");
+            this.Manager.Comment("executing step \'call Move1(2,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move1(2, 1);
+            this.Manager.Comment("reaching state \'S250\'");
+            this.Manager.Comment("checking step \'return Move1\'");
+            this.Manager.Comment("reaching state \'S251\'");
+            this.Manager.Comment("executing step \'call Move2(0,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move2(0, 1);
+            this.Manager.Comment("reaching state \'S252\'");
+            this.Manager.Comment("checking step \'return Move2\'");
+            this.Manager.Comment("reaching state \'S253\'");
+            this.Manager.Comment("executing step \'call Move3(2,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move3(2, 2);
+            this.Manager.Comment("reaching state \'S254\'");
+            this.Manager.Comment("checking step \'return Move3\'");
+            this.Manager.Comment("reaching state \'S255\'");
+            this.Manager.Comment("executing step \'call Move4(0,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move4(0, 2);
+            this.Manager.Comment("reaching state \'S256\'");
+            this.Manager.Comment("checking step \'return Move4\'");
+            this.Manager.Comment("reaching state \'S257\'");
+            this.Manager.Comment("executing step \'call Move5(1,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move5(1, 1);
+            this.Manager.Comment("reaching state \'S258\'");
+            this.Manager.Comment("checking step \'return Move5\'");
+            this.Manager.Comment("reaching state \'S259\'");
+            this.Manager.Comment("executing step \'call Move6(1,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move6(1, 2);
+            this.Manager.Comment("reaching state \'S260\'");
+            this.Manager.Comment("checking step \'return Move6\'");
+            this.Manager.Comment("reaching state \'S261\'");
+            this.Manager.Comment("executing step \'call Move7(2,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move7(2, 0);
+            this.Manager.Comment("reaching state \'S262\'");
+            this.Manager.Comment("checking step \'return Move7\'");
+            AssertWinHorizontal();
+            this.Manager.Comment("reaching state \'S263\'");
+            this.Manager.EndTest();
+        }
+        #endregion
+
+
+        #region Test Starting in S219 (Player Win Vertical)
+        [Test]
+        public void GameBoardTestSuiteS219()
+        {
+            this.Manager.BeginTest("GameBoardTestSuiteS219");
+            this.Manager.Comment("reaching state \'S219\'");
+            this.Manager.Comment("executing step \'call Move1(2,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move1(2, 1);
+            this.Manager.Comment("reaching state \'S220\'");
+            this.Manager.Comment("checking step \'return Move1\'");
+            this.Manager.Comment("reaching state \'S221\'");
+            this.Manager.Comment("executing step \'call Move2(2,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move2(2, 0);
+            this.Manager.Comment("reaching state \'S222\'");
+            this.Manager.Comment("checking step \'return Move2\'");
+            this.Manager.Comment("reaching state \'S223\'");
+            this.Manager.Comment("executing step \'call Move3(0,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move3(0, 2);
+            this.Manager.Comment("reaching state \'S224\'");
+            this.Manager.Comment("checking step \'return Move3\'");
+            this.Manager.Comment("reaching state \'S225\'");
+            this.Manager.Comment("executing step \'call Move4(0,0)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move4(0, 0);
+            this.Manager.Comment("reaching state \'S226\'");
+            this.Manager.Comment("checking step \'return Move4\'");
+            this.Manager.Comment("reaching state \'S227\'");
+            this.Manager.Comment("executing step \'call Move5(0,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move5(0, 1);
+            this.Manager.Comment("reaching state \'S228\'");
+            this.Manager.Comment("checking step \'return Move5\'");
+            this.Manager.Comment("reaching state \'S229\'");
+            this.Manager.Comment("executing step \'call Move6(2,2)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move6(2, 2);
+            this.Manager.Comment("reaching state \'S230\'");
+            this.Manager.Comment("checking step \'return Move6\'");
+            this.Manager.Comment("reaching state \'S231\'");
+            this.Manager.Comment("executing step \'call Move7(1,1)\'");
+            TicTacToeMBT.Implementation.Accumulator.Move7(1, 1);
+            this.Manager.Comment("reaching state \'S232\'");
+            this.Manager.Comment("checking step \'return Move7\'");
+            AssertWinVertical();
+            this.Manager.Comment("reaching state \'S233\'");
             this.Manager.EndTest();
         }
         #endregion
@@ -945,6 +1167,44 @@ namespace TicTacToeMBT.TestSuite
         private void AssertPlayerTurn(Implementation.Player player)
         {
             NUnit.Framework.Assert.AreEqual(player.ToString(), Implementation.Accumulator.GetValueFromLastTurn(player));
+        }
+
+        private void AssertDraw()
+        {
+            NUnit.Framework.Assert.AreEqual(true, Implementation.Accumulator.IsDraw());
+        }
+
+        private void AssertWinHorizontal()
+        {
+            NUnit.Framework.Assert.AreEqual(true, Implementation.Accumulator.IsPlayerWinHorizontal());
+            AssertPlayerWin();
+        }
+
+        private void AssertWinVertical()
+        {
+            NUnit.Framework.Assert.AreEqual(true, Implementation.Accumulator.IsPlayerWinVertical());
+            AssertPlayerWin();
+        }
+
+        private void AssertWinDiagonal()
+        {
+            NUnit.Framework.Assert.AreEqual(true, Implementation.Accumulator.IsPlayerWinDiagonal());
+            AssertPlayerWin();
+        }
+
+        private void AssertPlayerWin()
+        {
+            string currentPlayerWin = Implementation.Accumulator.GetCurrentPlayerWin();
+            if (currentPlayerWin == Implementation.Player.X.ToString())
+            {
+                NUnit.Framework.Assert.AreEqual(1, TicTacToeMBT.Implementation.Accumulator.GetXWins());
+                NUnit.Framework.Assert.AreEqual(100, TicTacToeMBT.Implementation.Accumulator.GetXRecord());
+            }
+            else if (currentPlayerWin == Implementation.Player.O.ToString())
+            {
+                NUnit.Framework.Assert.AreEqual(1, TicTacToeMBT.Implementation.Accumulator.GetOWins());
+                NUnit.Framework.Assert.AreEqual(100, TicTacToeMBT.Implementation.Accumulator.GetORecord());
+            }
         }
 
         #endregion
